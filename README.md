@@ -7,3 +7,4 @@
 ## Links importantes:
 - Doc: vai ter
 - PLY: https://www.dabeaz.com/ply/ply.html#ply_nn3
+- SLY: https://sly.readthedocs.io/en/latest/
