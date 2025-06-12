@@ -1,0 +1,281 @@
+Grammar:
+
+Rule 0     S' -> PROGRAM
+Rule 1     PROGRAM -> DEVICES CMDS
+Rule 2     PROGRAM -> DEVICES
+Rule 3     DEVICES -> DEVICE DEVICES
+Rule 4     DEVICES -> DEVICE
+Rule 5     DEVICE -> device : { namedevice , observation }
+Rule 6     DEVICE -> device : { namedevice }
+Rule 7     CMDS -> CMD . CMDS
+Rule 8     CMDS -> CMD .
+Rule 9     CMD -> ACT
+Rule 10    CMD -> ATTRIB
+Rule 11    ATTRIB -> set observation = VAR
+Rule 12    ACT -> ACTION namedevice
+Rule 13    ACTION -> action
+Rule 14    VAR -> number
+Rule 15    VAR -> boolean
+
+Terminals, with rules where they appear:
+
+,                    : 5
+.                    : 7 8
+:                    : 5 6
+=                    : 11
+action               : 13
+boolean              : 15
+device               : 5 6
+error                : 
+namedevice           : 5 6 12
+number               : 14
+observation          : 5 11
+set                  : 11
+{                    : 5 6
+}                    : 5 6
+
+Nonterminals, with rules where they appear:
+
+ACT                  : 9
+ACTION               : 12
+ATTRIB               : 10
+CMD                  : 7 8
+CMDS                 : 1 7
+DEVICE               : 3 4
+DEVICES              : 1 2 3
+PROGRAM              : 0
+VAR                  : 11
+
+
+state 0
+
+    (0) S' -> . PROGRAM
+    (1) PROGRAM -> . DEVICES CMDS
+    (2) PROGRAM -> . DEVICES
+    (3) DEVICES -> . DEVICE DEVICES
+    (4) DEVICES -> . DEVICE
+    (5) DEVICE -> . device : { namedevice , observation }
+    (6) DEVICE -> . device : { namedevice }
+    device          shift and go to state 4
+
+    PROGRAM                        shift and go to state 1
+    DEVICES                        shift and go to state 2
+    DEVICE                         shift and go to state 3
+
+state 1
+
+    (0) S' -> PROGRAM .
+
+
+state 2
+
+    (1) PROGRAM -> DEVICES . CMDS
+    (2) PROGRAM -> DEVICES .
+    (7) CMDS -> . CMD . CMDS
+    (8) CMDS -> . CMD .
+    (9) CMD -> . ACT
+    (10) CMD -> . ATTRIB
+    (12) ACT -> . ACTION namedevice
+    (11) ATTRIB -> . set observation = VAR
+    (13) ACTION -> . action
+    $end            reduce using rule 2 (PROGRAM -> DEVICES .)
+    set             shift and go to state 10
+    action          shift and go to state 11
+
+    CMDS                           shift and go to state 5
+    CMD                            shift and go to state 6
+    ACT                            shift and go to state 7
+    ATTRIB                         shift and go to state 8
+    ACTION                         shift and go to state 9
+
+state 3
+
+    (3) DEVICES -> DEVICE . DEVICES
+    (4) DEVICES -> DEVICE .
+    (3) DEVICES -> . DEVICE DEVICES
+    (4) DEVICES -> . DEVICE
+    (5) DEVICE -> . device : { namedevice , observation }
+    (6) DEVICE -> . device : { namedevice }
+    set             reduce using rule 4 (DEVICES -> DEVICE .)
+    action          reduce using rule 4 (DEVICES -> DEVICE .)
+    $end            reduce using rule 4 (DEVICES -> DEVICE .)
+    device          shift and go to state 4
+
+    DEVICE                         shift and go to state 3
+    DEVICES                        shift and go to state 12
+
+state 4
+
+    (5) DEVICE -> device . : { namedevice , observation }
+    (6) DEVICE -> device . : { namedevice }
+    :               shift and go to state 13
+
+
+state 5
+
+    (1) PROGRAM -> DEVICES CMDS .
+    $end            reduce using rule 1 (PROGRAM -> DEVICES CMDS .)
+
+
+state 6
+
+    (7) CMDS -> CMD . . CMDS
+    (8) CMDS -> CMD . .
+    .               shift and go to state 14
+
+
+state 7
+
+    (9) CMD -> ACT .
+    .               reduce using rule 9 (CMD -> ACT .)
+
+
+state 8
+
+    (10) CMD -> ATTRIB .
+    .               reduce using rule 10 (CMD -> ATTRIB .)
+
+
+state 9
+
+    (12) ACT -> ACTION . namedevice
+    namedevice      shift and go to state 15
+
+
+state 10
+
+    (11) ATTRIB -> set . observation = VAR
+    observation     shift and go to state 16
+
+
+state 11
+
+    (13) ACTION -> action .
+    namedevice      reduce using rule 13 (ACTION -> action .)
+
+
+state 12
+
+    (3) DEVICES -> DEVICE DEVICES .
+    set             reduce using rule 3 (DEVICES -> DEVICE DEVICES .)
+    action          reduce using rule 3 (DEVICES -> DEVICE DEVICES .)
+    $end            reduce using rule 3 (DEVICES -> DEVICE DEVICES .)
+
+
+state 13
+
+    (5) DEVICE -> device : . { namedevice , observation }
+    (6) DEVICE -> device : . { namedevice }
+    {               shift and go to state 17
+
+
+state 14
+
+    (7) CMDS -> CMD . . CMDS
+    (8) CMDS -> CMD . .
+    (7) CMDS -> . CMD . CMDS
+    (8) CMDS -> . CMD .
+    (9) CMD -> . ACT
+    (10) CMD -> . ATTRIB
+    (12) ACT -> . ACTION namedevice
+    (11) ATTRIB -> . set observation = VAR
+    (13) ACTION -> . action
+    $end            reduce using rule 8 (CMDS -> CMD . .)
+    set             shift and go to state 10
+    action          shift and go to state 11
+
+    CMD                            shift and go to state 6
+    CMDS                           shift and go to state 18
+    ACT                            shift and go to state 7
+    ATTRIB                         shift and go to state 8
+    ACTION                         shift and go to state 9
+
+state 15
+
+    (12) ACT -> ACTION namedevice .
+    .               reduce using rule 12 (ACT -> ACTION namedevice .)
+
+
+state 16
+
+    (11) ATTRIB -> set observation . = VAR
+    =               shift and go to state 19
+
+
+state 17
+
+    (5) DEVICE -> device : { . namedevice , observation }
+    (6) DEVICE -> device : { . namedevice }
+    namedevice      shift and go to state 20
+
+
+state 18
+
+    (7) CMDS -> CMD . CMDS .
+    $end            reduce using rule 7 (CMDS -> CMD . CMDS .)
+
+
+state 19
+
+    (11) ATTRIB -> set observation = . VAR
+    (14) VAR -> . number
+    (15) VAR -> . boolean
+    number          shift and go to state 22
+    boolean         shift and go to state 23
+
+    VAR                            shift and go to state 21
+
+state 20
+
+    (5) DEVICE -> device : { namedevice . , observation }
+    (6) DEVICE -> device : { namedevice . }
+    ,               shift and go to state 24
+    }               shift and go to state 25
+
+
+state 21
+
+    (11) ATTRIB -> set observation = VAR .
+    .               reduce using rule 11 (ATTRIB -> set observation = VAR .)
+
+
+state 22
+
+    (14) VAR -> number .
+    .               reduce using rule 14 (VAR -> number .)
+
+
+state 23
+
+    (15) VAR -> boolean .
+    .               reduce using rule 15 (VAR -> boolean .)
+
+
+state 24
+
+    (5) DEVICE -> device : { namedevice , . observation }
+    observation     shift and go to state 26
+
+
+state 25
+
+    (6) DEVICE -> device : { namedevice } .
+    device          reduce using rule 6 (DEVICE -> device : { namedevice } .)
+    set             reduce using rule 6 (DEVICE -> device : { namedevice } .)
+    action          reduce using rule 6 (DEVICE -> device : { namedevice } .)
+    $end            reduce using rule 6 (DEVICE -> device : { namedevice } .)
+
+
+state 26
+
+    (5) DEVICE -> device : { namedevice , observation . }
+    }               shift and go to state 27
+
+
+state 27
+
+    (5) DEVICE -> device : { namedevice , observation } .
+    device          reduce using rule 5 (DEVICE -> device : { namedevice , observation } .)
+    set             reduce using rule 5 (DEVICE -> device : { namedevice , observation } .)
+    action          reduce using rule 5 (DEVICE -> device : { namedevice , observation } .)
+    $end            reduce using rule 5 (DEVICE -> device : { namedevice , observation } .)
