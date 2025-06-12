@@ -1,4 +1,7 @@
-# Trabalho de INF1022 - Analisadores léxicos e sintáticos
+# Trabalho de INF1022 - Analisadores Léxicos e Sintáticos
+
+## Relatório:
+https://docs.google.com/document/d/1161eO2iewS9MAFvN3UelFDLjBZv2Md8HUEfulOr0gz4/edit?usp=sharing
 
 ## Integrantes:
 - Arthur Augusto Claro Sardella - 2212763 - 3WA
