@@ -1,5 +1,5 @@
 dispositivo : { Termometro , temperatura }
-dispositivo : { ventilador , potencia }
+dispositivo : { Ventilador , potencia }
 set temperatura = 40.
 set potencia = 90.
-se temperatura > 30 entao ligar ventilador .
+se temperatura > 30 entao ligar Ventilador .

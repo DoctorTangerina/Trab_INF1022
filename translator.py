@@ -1,9 +1,18 @@
+import json
+from lua import lua_dict
 
+langs = {'lua' : lua_dict}
 
-def translate(tokens: list) -> None:
-    with open("output.lua", "w") as out_file:
+def translate(out_name: str, tokens: list, table: dict) -> None:
+    with open(out_name, "w") as out_file:
         print("translating...")
         #add pre-code
-        #check token and match with lua language line
-
+        for token in tokens:
+            for key, value in token.items():
+                args = [v.strip() for v in value.split(', ')]
+                out_file.write(table[key](args))
     return
+
+if __name__ == '__main__':
+    test = json.loads('[{"DEVICE_OBS" : "Batata, temperatura"},{"DEVICE" : "Cebola"},{"ATTRIB" : "temperatura, 100"}]')
+    translate('output.lua', test, lua_dict)

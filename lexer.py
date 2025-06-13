@@ -7,14 +7,23 @@ class ObsActLexer(Lexer):
     number = r'\d+'
     device = r'dispositivo'
     set = r'set'
+    enviar = r'enviar'
+    alerta = r'alerta'
+    para = r'para'
+    todos = r'todos'
+    senao = r'senao'
+    se = r'se'
+    entao = r'entao'
     action = r'ligar|desligar'
 
+    oplogic = r'==|!=|>=|<=|>|<'
     namedevice = r'[A-Z][a-zA-Z0-9]*'
     observation = r'[a-z][a-zA-Z0-9]*'
+    msg = r'"([\s\S]*?)"'
 
-    literals = {'{', '}', ',', ':', '=', '.'}
+    literals = {'{', '}', '(', ')', ',', ':', '=', '.', '&'}
 
-    tokens = ["device", "set", "boolean", "number", "action", "namedevice", "observation", ]
+    tokens = ["device", "set", "enviar", "alerta", "para", "todos", "se", "entao", "senao", "boolean", "number", "action", "msg", "oplogic", "namedevice", "observation", ]
 
     def __init__(self):
         self.nesting_level = 0
