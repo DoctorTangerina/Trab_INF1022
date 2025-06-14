@@ -1,4 +1,4 @@
-def lua_precode(args: list[str]):
+def lua_precode():
     return '''-- Função ligar
 function on(namedevice)
   print(namedevice .. " ligado!")
@@ -73,6 +73,9 @@ def lua_off(args: list[str]):
 def lua_on(args: list[str]):
     return 'on(%s)\n' % (args[0])
 
+def lua_after_code():
+    return ''
+
 lua_dict = {
     'PRECODE' : lua_precode,
     'DEVICE' : lua_device,
@@ -85,5 +88,6 @@ lua_dict = {
     'ALERT_OBS' : lua_alert_obs,
     'ALERT_ALL' : lua_alert_all,
     'desligar' : lua_off,
-    'ligar' : lua_on
+    'ligar' : lua_on,
+    'AFTERCODE' : lua_after_code
 }
