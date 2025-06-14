@@ -5,8 +5,7 @@ langs = {'lua' : lua_dict}
 
 def translate(out_name: str, tokens: list, table: dict) -> None:
     with open(out_name, "w") as out_file:
-        print("translating...")
-        #add pre-code
+        out_file.write(table['PRECODE']([]))
         for token in tokens:
             for key, value in token.items():
                 args = [v.strip() for v in value.split(', ')]
