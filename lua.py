@@ -83,7 +83,7 @@ lua_dict = {
     'ATTRIB' : lua_attrib,
     'IF' : lua_if,
     'ELSE' : lua_else,
-    'END' : lua_end,
+    'ENDIF' : lua_end,
     'ALERT' : lua_alert,
     'ALERT_OBS' : lua_alert_obs,
     'ALERT_ALL' : lua_alert_all,

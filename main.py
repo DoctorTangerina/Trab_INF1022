@@ -9,7 +9,7 @@ def main(file_name: str, language: str) -> None:
     try:
         lang_dict = langs[language]
     except KeyError:
-        print("Please select a valid language (lua...)")
+        print("Please select a valid language (lua, java...)")
         return
     output_filename = "output." + language
     if file_name.endswith('.obsact'):
