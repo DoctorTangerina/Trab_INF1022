@@ -75,19 +75,19 @@ class ObsActParser(Parser):
 
     @_('se OBS entao ACT senao ACT')
     def OBSACT(self, p):
-        return f',\n{{"IF" : "' + p.OBS + f'"}}' + p.ACT0 + f',\n{{"ELSE" : ""}}' + p.ACT1 + f',\n{{"END" : ""}}'
+        return f',\n{{"IF" : "' + p.OBS + f'"}}' + p.ACT0 + f',\n{{"ELSE" : ""}}' + p.ACT1 + f',\n{{"ENDIF" : ""}}'
 
     @_('se OBS entao ACT')
     def OBSACT(self, p):
-        return f',\n{{"IF" : "' + p.OBS + f'"}}' + p.ACT + f',\n{{"END" : ""}}'
+        return f',\n{{"IF" : "' + p.OBS + f'"}}' + p.ACT + f',\n{{"ENDIF" : ""}}'
 
     @_('observation oplogic VAR "&" "&" OBS')
     def OBS(self, p):
-        return p.observation + p.oplogic + p.VAR + "&&" + p.OBS
+        return p.observation + ' ' + p.oplogic + ' ' + p.VAR + "&&" + p.OBS
 
     @_('observation oplogic VAR')
     def OBS(self, p):
-        return p.observation + p.oplogic + p.VAR
+        return p.observation + ' ' + p.oplogic + ' ' + p.VAR
 
     @_('action')
     def ACTION(self, p):

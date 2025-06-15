@@ -1,7 +1,11 @@
 import json
 from lua import lua_dict
+from java import java_dict
 
-langs = {'lua' : lua_dict}
+langs = {
+    'lua' : lua_dict,
+    'java' : java_dict
+}
 
 def translate(out_name: str, tokens: list, table: dict) -> None:
     with open(out_name, "w") as out_file:
