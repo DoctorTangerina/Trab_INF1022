@@ -1,51 +1,43 @@
 obs_table = {}
 
 def java_precode():
-    return '''enum DataType {
-    INT,
-    BOOLEAN,
-    NONE
-}
-
-class Device {
+    return '''class Device {
     String name;
     String obsName;
     int obsInt;
     boolean obsBool;
-    DataType dataType;
-    
+
     public Device(String name) {
         this.name = name;
     }
-    
+
     public Device(String name, String obsName) {
         this(name);
         this.obsName = obsName;
-        dataType = DataType.NONE;
+        this.obsInt = 0;
+        this.obsBool = false;
     }
-    
+
     public void setObs(int obs) {
-        dataType = DataType.INT;
         obsInt = obs;
     }
-    
+
     public void setObs(boolean obs) {
-        dataType = DataType.BOOLEAN;
         obsBool = obs;
     }
-    
+
     public Integer getObsInt() {
-        return dataType == DataType.INT ? obsInt : null;
+        return obsInt;
     }
 
     public Boolean getObsBool() {
-        return dataType == DataType.BOOLEAN ? obsBool : null;
+        return obsBool;
     }
-    
+
     public void on() {
         System.out.println(this.name + " ligado!");
     }
-    
+
     public void off() {
         System.out.println(this.name + " desligado!");
     }

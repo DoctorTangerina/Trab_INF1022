@@ -36,7 +36,7 @@ def lua_device(args: list[str]):
     return s
 
 def lua_device_obs(args: list[str]):
-    s = '%s = "%s"\n%s = nil\n' % (args[0], args[0], args[1])
+    s = '%s = "%s"\n%s = 0\n' % (args[0], args[0], args[1])
     return s
 
 def lua_attrib(args: list[str]):
