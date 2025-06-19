@@ -7,7 +7,7 @@ from analyzer import analyze
 def main(file_name: str, language: str) -> None:
     tokens = []
     try:
-        lang_dict = langs[language]
+        lang_dict = langs[language.lower()]
     except KeyError:
         print("Please select a valid language (lua, java...)")
         return
@@ -25,7 +25,10 @@ def main(file_name: str, language: str) -> None:
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 3:
-        print("Usage: python3 main.py <file_name> <language>")
-    else:
-        main(sys.argv[1], sys.argv[2])
+    if len(sys.argv) > 1:
+        if sys.argv[1] == '-l' or sys.argv[1] == '--list':
+            print("Available languages:\n\t- lua\n\t- java")
+        elif not len(sys.argv) == 3:
+            print("Usage: python3 main.py <file_name> <language>\nUsage: python3 main.py --list (or -l)")
+        else:
+            main(sys.argv[1], sys.argv[2])
