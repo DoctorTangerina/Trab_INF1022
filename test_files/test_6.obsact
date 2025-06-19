@@ -1,2 +1,2 @@
-dispositivo : { ventilador }
-desligar ventilador
+dispositivo : { Ventilador }
+desligar Ventilador

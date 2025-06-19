@@ -1,4 +1,6 @@
 from sly import Lexer
+from sly.lex import LexError
+
 
 class ObsActLexer(Lexer):
     ignore = " \t\n"
@@ -41,7 +43,6 @@ class ObsActLexer(Lexer):
         return t
 
     def error(self, t):
-        print(f"Lexer error at '{t.value}'")
-        self.index += 1
+        raise LexError('Line %d: Bad character %r' % (self.lineno, t.value[0]), t.value, self.index)
 
 lexer = ObsActLexer()

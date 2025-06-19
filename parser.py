@@ -1,4 +1,5 @@
 from sly import Parser
+from sly.yacc import GrammarError
 
 from lexer import ObsActLexer
 
@@ -110,6 +111,8 @@ class ObsActParser(Parser):
         return f'{p.number}'
 
     def error(self, t):
-        return f"Syntax error token={t}"
-
+        if t:
+            raise GrammarError(f"Syntax error at line {t.lineno}:{t.index} : token value '{t.value}' of type '{t.type}'")
+        else:
+            raise GrammarError(f"Syntax unknown error")
 parser = ObsActParser()
