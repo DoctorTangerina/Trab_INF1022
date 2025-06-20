@@ -15,7 +15,7 @@
 - [🔗 Links importantes](#-links-importantes)
 
 # Conversor de Obsact para Lua/Java
-Este script Python converte arquivos escritos na linguagem Obsact para uma linguagem de destino: Lua ou Java.
+Este script Python converte arquivos escritos na linguagem Obsact para uma linguagem de destino: Lua, Java ou C.
 
 ## 📦 Requisitos
 
@@ -36,7 +36,7 @@ python main.py <nome_do_arquivo> <linguagem_destino>
 Exemplo: exemplo.obsact, ./entradas/codigo.obsact
 
 `linguagem_destino`: Linguagem para a qual deseja converter.<br>
-Valores possíveis: Lua, Java (insensível a maiúsculas e minúsculas)
+Valores possíveis: Lua, Java, C (insensível a maiúsculas e minúsculas)
 
 ### ✅ Exemplo de uso
 
@@ -61,6 +61,7 @@ Saída esperada:
 Linguagens disponíveis:
     - Lua
     - Java
+    - C
 ```
 
 ## 🧪 Rodar os testes

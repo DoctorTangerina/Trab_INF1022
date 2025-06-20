@@ -1,10 +1,12 @@
 import json
 from lua import lua_dict
 from java import java_dict
+from c import c_dict
 
 langs = {
     'lua' : lua_dict,
-    'java' : java_dict
+    'java' : java_dict,
+    'c':c_dict
 }
 
 def translate(out_name: str, tokens: list, table: dict) -> None:
