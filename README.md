@@ -2,7 +2,7 @@
 
 ## 📚 Índice
 
-- [🔄 Conversor de Obsact para Lua/Java](#conversor-de-obsact-para-luajava)
+- [🔄 Conversor de Obsact para Lua/Java/C](#conversor-de-obsact-para-luajavac)
 - [📦 Requisitos](#-requisitos)
 - [🚀 Como usar](#-como-usar)
 - [📜 Listar linguagens disponíveis](#-listar-linguagens-disponíveis)
@@ -14,7 +14,7 @@
 - [👥 Integrantes](#-integrantes)
 - [🔗 Links importantes](#-links-importantes)
 
-# Conversor de Obsact para Lua/Java
+# Conversor de Obsact para Lua/Java/C
 Este script Python converte arquivos escritos na linguagem Obsact para uma linguagem de destino: Lua, Java ou C.
 
 ## 📦 Requisitos

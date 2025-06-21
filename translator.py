@@ -6,7 +6,7 @@ from c import c_dict
 langs = {
     'lua' : lua_dict,
     'java' : java_dict,
-    'c':c_dict
+    'c': c_dict
 }
 
 def translate(out_name: str, tokens: list, table: dict) -> None:

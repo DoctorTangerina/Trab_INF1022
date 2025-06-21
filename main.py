@@ -27,7 +27,7 @@ def main(file_name: str, language: str) -> None:
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         if sys.argv[1] == '-l' or sys.argv[1] == '--list':
-            print("Available languages:\n\t- lua\n\t- java")
+            print("Available languages:\n\t- Lua\n\t- Java\n\t- C")
         elif not len(sys.argv) == 3:
             print("Usage: python3 main.py <file_name> <language>\nUsage: python3 main.py --list (or -l)")
         else:
