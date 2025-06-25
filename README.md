@@ -74,12 +74,12 @@ python tests.py
 Os testes cobrem os principais casos de conversão e validação do parser e lexer.
 
 ## 📂 Saída
-O script irá gerar um novo arquivo com nome `output`, mas com a extensão correspondente à linguagem de destino.
+O script irá gerar um novo arquivo com nome `Main`, mas com a extensão correspondente à linguagem de destino.
 Por exemplo:
 
 Entrada: exemplo.obsact
 
-Saída (para linguagem Lua): output.lua
+Saída (para linguagem Lua): Main.lua
 
 ## ⚠️ Observações
 O script espera que o arquivo de entrada esteja no formato válido da linguagem Obsact.<br>
