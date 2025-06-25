@@ -11,7 +11,7 @@ def main(file_name: str, language: str) -> None:
     except KeyError:
         print("Please select a valid language (lua, java...)")
         return
-    output_filename = "output." + language
+    output_filename = "Main." + language
     if file_name.endswith('.obsact'):
         try:
             tokens = analyze(file_name)
